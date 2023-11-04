@@ -19,4 +19,4 @@ for i in range(limite):
             chiffre="0"
         resultat.append(chiffre)
         if int(decimal)==0:
-            break
+            break 
