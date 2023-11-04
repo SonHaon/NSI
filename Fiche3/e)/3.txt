@@ -1,0 +1,1 @@
+tout les assignation de variable ne sont pas dans la boucle for
