@@ -12,6 +12,7 @@ def dec_bin_apres_virgule(decimal:int):
             break
     return "".join(resultat)
 def reel2bin(nombre:float)->str:
+    print(nombre)
     signe=""
     if nombre<0:
         signe="-"
@@ -35,9 +36,10 @@ def rep_bin_reel(nombre:float,bits_exposant:int,bits_mantisse:int)->str:
     if nombre<0:
         signe=1
         nombre=abs(nombre)
+    print(str(nombre))
     print(f"signe : {signe}")
-    resultat.append(signe)
-    resultat_norme.append(signe)
+    resultat.append(str(signe))
+    resultat_norme.append(str(signe))
 
     binaire = reel2bin(nombre)
     mantisse = binaire.replace(".","")
@@ -48,6 +50,13 @@ def rep_bin_reel(nombre:float,bits_exposant:int,bits_mantisse:int)->str:
 
     exposant=dec_vers_bin(len(binaire.split(".")[0])-1)[2:]
     print(f"exposant sans décalage : {exposant}")
+    resultat.insert(1,exposant)
+    exposant_decalage=somme_binaire("0b"+exposant,"0b1111111")[2:]
+    print(f"exposant avec décalage : {exposant_decalage}")
+    resultat_norme.insert(1,exposant_decalage)
+
+
+
     
 
 
@@ -62,7 +71,7 @@ def rep_bin_reel(nombre:float,bits_exposant:int,bits_mantisse:int)->str:
 
 
 
+print(rep_bin_reel(67.0,8,23))
 
-
-print(reel2bin(-1024.25))
-print(bin2reel("10000000000.01"))
+# print(reel2bin(-1024.25))
+# print(bin2reel("10000000000.01"))

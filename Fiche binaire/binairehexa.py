@@ -49,7 +49,9 @@ def n_vers_m(nb:str,n,m)->str:
         nb,reste=int(nb//m),nb%m
         resultat.insert(1,str(hexadecimal[reste]))
     return "".join(resultat)
-def somme_binaire(nb1,nb2):
+def somme_binaire(nb1:str,nb2:str):
+    """somme de deux nombre binaire str
+    sous forme "0b1100110" sinon ca bug"""
     nb1=nb1[2:]
     nb2=nb2[2:]
     resultat=["0b"]
