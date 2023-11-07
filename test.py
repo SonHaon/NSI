@@ -7,16 +7,18 @@
 #print(resultat)
 
 
-print("zjoifdqjhoz"[1:])
+# print("zjoifdqjhoz"[1:])
 
 
-for i in range(limite):
-        decimal=str(int(decimal)*2)
-        if int(decimal)>=10**chiffre_decimal:
-            chiffre=decimal[0]
-            decimal=int(decimal[1:])
-        else:
-            chiffre="0"
-        resultat.append(chiffre)
-        if int(decimal)==0:
-            break 
+# for i in range(limite):
+#         decimal=str(int(decimal)*2)
+#         if int(decimal)>=10**chiffre_decimal:
+#             chiffre=decimal[0]
+#             decimal=int(decimal[1:])
+#         else:
+#             chiffre="0"
+#         resultat.append(chiffre)
+#         if int(decimal)==0:
+#             break 
+
+print("test_long"[:2])

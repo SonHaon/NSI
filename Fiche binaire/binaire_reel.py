@@ -42,16 +42,17 @@ def rep_bin_reel(nombre:float,bits_exposant:int,bits_mantisse:int)->str:
     resultat_norme.append(str(signe))
 
     binaire = reel2bin(nombre)
-    mantisse = binaire.replace(".","")
+    mantisse = (binaire.replace(".","")+"0"*bits_mantisse)[:bits_mantisse]
     print(f"mantisse : {mantisse}")
     resultat.append(mantisse)
-    print(f"mantisse tronquée : {mantisse[1:]}")
-    resultat_norme.append(mantisse[1:])
+    mantisse_tronquee=(mantisse[1:]+"0"*bits_mantisse)[:bits_mantisse]
+    print(f"mantisse tronquée : {mantisse_tronquee}")
+    resultat_norme.append(mantisse_tronquee)
 
-    exposant=dec_vers_bin(len(binaire.split(".")[0])-1)[2:]
+    exposant=("0"*bits_exposant+dec_vers_bin(len(binaire.split(".")[0])-1)[2:])[-bits_exposant:]
     print(f"exposant sans décalage : {exposant}")
     resultat.insert(1,exposant)
-    exposant_decalage=somme_binaire("0b"+exposant,"0b1111111")[2:]
+    exposant_decalage=("0"*bits_exposant+somme_binaire("0b"+exposant,"0b1111111")[2:])[-bits_exposant:]
     print(f"exposant avec décalage : {exposant_decalage}")
     resultat_norme.insert(1,exposant_decalage)
 
