@@ -21,4 +21,5 @@
 #         if int(decimal)==0:
 #             break 
 
-print("test_long"[:2])
+print("abcdefghijklmnopqrstuvwxyz"[:-6][-6:])
+print(int("0111111",2))
