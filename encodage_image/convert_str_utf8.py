@@ -1,5 +1,3 @@
-
-
 def str_vers_utf8(message: str) -> str:
     """
     Prend en argument un message sous forme de chaîne de caractères
@@ -18,7 +16,7 @@ def str_vers_utf8(message: str) -> str:
         elif len(binaire)<=21:
             binaire=f"11110{'0'*(21-len(binaire))}{binaire[:-18]} 10{binaire[:-6][-12:]} 10{binaire[:-6][-6:]} 10{binaire[-6:]}"
         resultat=resultat+binaire+" "
-    return resultat
+    return resultat.replace(" ","")
 
 def utf8_vers_str(message_utf8: str) -> str:
     """

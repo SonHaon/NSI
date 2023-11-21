@@ -21,5 +21,8 @@
 #         if int(decimal)==0:
 #             break 
 
-print("abcdefghijklmnopqrstuvwxyz"[:-6][-6:])
-print(int("0111111",2))
+# print("abcdefghijklmnopqrstuvwxyz"[:-6][-6:])
+# print(int("0111111",2))
+
+from PIL import Image
+
