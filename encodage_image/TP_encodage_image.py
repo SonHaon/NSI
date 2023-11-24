@@ -1,6 +1,8 @@
 from convert_str_utf8 import str_vers_utf8,utf8_vers_str
 from PIL import Image
 import time
+from pathlib import Path
+path = Path(__file__).parent
 
 def split3(message:str):
     message_new=[]
@@ -20,9 +22,9 @@ def split3(message:str):
 
 
 
-def encodage_message_dans_image(image,message):
+def encodage_message_dans_image(image_name,message):
     message=split3(str_vers_utf8(message))
-    image=Image.open(r"C:\Users\noahv\Desktop\NSI\encodage_image\\"+image)
+    image=Image.open(path / image_name)
     hauteur=0
     longueur=0
     for triple_bit in message:
@@ -45,11 +47,14 @@ def encodage_message_dans_image(image,message):
         else:
             longueur+=1
     
-    image.save(r"C:\Users\noahv\Desktop\NSI\encodage_image\\"+"babouin_secret.png")
+    image.save(path / "babouin_secret.png")
 
-def decodage_message_dans_image(image,image_base):
-    image=Image.open(r"E:\image_code\\"+image)
-    image_base=Image.open(r"C:\Users\noahv\Desktop\NSI\encodage_image\\"+image_base)
+def decodage_message_dans_image(image_name,image_base_name):
+    try:
+        image=Image.open(r"E:\image_code\\"+image_name)
+    except:
+        image=Image.open(path / image_name)
+    image_base=Image.open(path / image_base_name)
     message=[]
     a=0
     for hauteur in range(image.height):
@@ -65,7 +70,7 @@ def decodage_message_dans_image(image,image_base):
     
     
     message="".join(message).rstrip("0")
-    # message=utf8_vers_str(message)
+    message=utf8_vers_str(message)
 
     image.close()
     image_base.close()
