@@ -46,8 +46,12 @@ def encodage_message_dans_image(image_name,message):
             hauteur+=1
         else:
             longueur+=1
-    
-    image.save(path / "babouin_secret.png")
+    try:
+        image.save(r"E:\image_code\\"+"babouin_secret.png")
+        print("save sur clé")
+    except:
+        image.save(path / "babouin_secret.png")
+        print("save sur pc")
 
 def decodage_message_dans_image(image_name,image_base_name):
     try:
