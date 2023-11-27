@@ -26,3 +26,4 @@
 
 from PIL import Image
 
+print("012345678"[-4:])

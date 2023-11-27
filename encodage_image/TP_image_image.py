@@ -28,13 +28,16 @@ def decodage_image_dans_image():
     a=0
     for hauteur in range(image.height):
         for longueur in range(image.width):
+            time.sleep(2)
             r,g,b=image.getpixel((longueur,hauteur))
+            print(bin(r),bin(g),bin(b))
             r="0"*(8-len(bin(r)[2:]))+bin(r)[2:]
             g="0"*(8-len(bin(g)[2:]))+bin(g)[2:]
             b="0"*(8-len(bin(b)[2:]))+bin(b)[2:]
-            r2=int(r[2:],2)
-            g2=int(g[2:],2)
-            b2=int(b[2:],2)
+            r2=int(r[-4:]+"0000",2)
+            g2=int(g[-4:]+"0000",2)
+            b2=int(b[-4:]+"0000",2)
+            print(r2,g2,b2)
             new_image.putpixel((longueur,hauteur),(r2,g2,b2))
         a+=1
     try:
@@ -54,14 +57,21 @@ def encode_image_dans_image(image):
     a=0
     for hauteur in range(image_base.height):
         for longueur in range(image_base.width):
+            time.sleep(2)
             r,g,b=image_base.getpixel((longueur,hauteur))
+            # print(r,g,b)
             r2,g2,b2=image.getpixel((longueur,hauteur))
-            r="0"*(8-len(bin(r)[2:]))+bin(r)[2:][::4]
-            g="0"*(8-len(bin(g)[2:]))+bin(g)[2:][::4]
-            b="0"*(8-len(bin(b)[2:]))+bin(b)[2:][::4]
-            r2="0"*(8-len(bin(r2)[2:]))+bin(r2)[2:][::4]
-            g2="0"*(8-len(bin(g2)[2:]))+bin(g2)[2:][::4]
-            b2="0"*(8-len(bin(b2)[2:]))+bin(r2)[2:][::4]
+            r="0"*(8-len(bin(r)[2:]))+bin(r)[2:][:-4]
+            g="0"*(8-len(bin(g)[2:]))+bin(g)[2:][:-4]
+            b="0"*(8-len(bin(b)[2:]))+bin(b)[2:][:-4]
+            print(int(r+"0000",2),int(g+"0000",2),int(b+"0000",2))
+            print(r,g,b)
+            print(bin(r2),bin(g2),bin(b2))
+            r2="0"*(8-len(bin(r2)[2:]))+bin(r2)[2:][:-4]
+            g2="0"*(8-len(bin(g2)[2:]))+bin(g2)[2:][:-4]
+            b2="0"*(8-len(bin(b2)[2:]))+bin(b2)[2:][:-4]
+            print(r2,g2,b2)
+            print(((r+r2),(g+g2),(b+b2)))
             image_base.putpixel((longueur,hauteur),(int(r+r2,2),int(g+g2,2),int(b+b2,2)))
         a+=1
     try:
@@ -72,8 +82,7 @@ def encode_image_dans_image(image):
         print("save sur pc")
 
     image_base.close()
-    image.show()
     image.close()
 
-
-decodage_image_dans_image()
+encode_image_dans_image("a_cache.png")
+# decodage_image_dans_image()
