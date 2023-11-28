@@ -73,7 +73,7 @@ def decodage_message_dans_image(image_name,image_base_name):
         a+=1
     
     
-    message="".join(message).rstrip("0")
+    message="".join(message).rstrip("0")+"0"*10
     message=utf8_vers_str(message)
 
     image.close()
