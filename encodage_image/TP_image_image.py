@@ -22,12 +22,12 @@ def split3(message:str):
     return message_new
 
 
-def decodage_image_dans_image():
+def decodage_image_dans_image(image):
     try:
         image=Image.open(r"E:\image_code\\"+"babouinception.png")
         print("ouvert sur clé")
     except:
-        image=Image.open(path / "babouinception.png")
+        image=Image.open(path / image)
         print("ouvert sur pc")
     new_image=image.copy()
     a=0
@@ -40,9 +40,9 @@ def decodage_image_dans_image():
             g="0"*(8-len(bin(g)[2:]))+bin(g)[2:]
             b="0"*(8-len(bin(b)[2:]))+bin(b)[2:]
             # print(r,g,b)
-            r2=int(r[-4:]+"0000",2)
-            g2=int(g[-4:]+"0000",2)
-            b2=int(b[-4:]+"0000",2)
+            r2=int(r[-3:]+"1000",2)
+            g2=int(g[-3:]+"1000",2)
+            b2=int(b[-3:]+"1000",2)
             # print(r2,g2,b2)
             new_image.putpixel((longueur,hauteur),(r2,g2,b2))
         a+=1
@@ -53,24 +53,24 @@ def decodage_image_dans_image():
 
 def encode_image_dans_image(image):
     image_base=Image.open(path / "babouin.png")
-    image=Image.open(path / image)
+    image=Image.open(path / image).convert("RGB")
+    print(image.mode)
     a=0
     for hauteur in range(image_base.height):
         for longueur in range(image_base.width):
-            # time.sleep(2)
             r,g,b=image_base.getpixel((longueur,hauteur))
             # print(r,g,b)
             # print(image.getpixel((longueur,hauteur)))
             r2,g2,b2=image.getpixel((longueur,hauteur))
-            r="0"*(8-len(bin(r)[2:]))+bin(r)[2:][:-4]
-            g="0"*(8-len(bin(g)[2:]))+bin(g)[2:][:-4]
-            b="0"*(8-len(bin(b)[2:]))+bin(b)[2:][:-4]
+            r="0"*(8-len(bin(r)[2:]))+bin(r)[2:][:-3]
+            g="0"*(8-len(bin(g)[2:]))+bin(g)[2:][:-3]
+            b="0"*(8-len(bin(b)[2:]))+bin(b)[2:][:-3]
             # print(int(r+"0000",2),int(g+"0000",2),int(b+"0000",2))
             # print(r,g,b)
             # print(bin(r2),bin(g2),bin(b2))
-            r2="0"*(8-len(bin(r2)[2:]))+bin(r2)[2:][:-4]
-            g2="0"*(8-len(bin(g2)[2:]))+bin(g2)[2:][:-4]
-            b2="0"*(8-len(bin(b2)[2:]))+bin(b2)[2:][:-4]
+            r2="0"*(8-len(bin(r2)[2:]))+bin(r2)[2:][:-5]
+            g2="0"*(8-len(bin(g2)[2:]))+bin(g2)[2:][:-5]
+            b2="0"*(8-len(bin(b2)[2:]))+bin(b2)[2:][:-5]
             # print(r2,g2,b2)
             # print(((r+r2),(g+g2),(b+b2)))
             # print((int(r+r2,2),int(g+g2,2),int(b+b2,2)))
@@ -90,4 +90,7 @@ def encode_image_dans_image(image):
     image.close()
 
 encode_image_dans_image("IncepBabouin.png")
-decodage_image_dans_image()
+# decodage_image_dans_image("matrix_code.png")
+
+
+decodage_image_dans_image("babouinception.png")
