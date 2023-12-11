@@ -1,20 +1,11 @@
 import json,os
+from pathlib import Path
+path= Path(__file__).parent
 
 os.system("cls")
 
-contact={
-    0:{
-        "nom":"VH",
-        "prenom":"noah",
-        "naissance":"2007",
-        "addresse":"ML",
-        "ville":"ML",
-        "code_postal":"78600",
-        "tel":"07********",
-        "email":"example@gmail.com"
-    }
-}
-
+with os.open((path / "contact.json"),"r") as file:
+    contact=json.load(file)
 def ajout_contact():
     global contact
     id=len(contact)
@@ -26,7 +17,7 @@ def ajout_contact():
     code_postal=input("code postal : ")
     tel=input("numéro de tel : ")
     email=input("email : ")
-    contact[id]={
+    contact[str(id)]={
         "nom":nom,
         "prenom":prenom,
         "naissance":naissance,
@@ -42,38 +33,39 @@ def supprimmer_contact():
 def voir_contact(id=None,prenom=None,tel=None):
     global contact
     infos=[]
+    width=os.get_terminal_size().columns-1
     if id!=None:
-        info=[f"***** Contact {id} : "+" "*(50-len(f"***** Contact {id} : ")-5)+"*****"]
+        info=[f"***** Contact {id} : "+" "*(width-len(f"***** Contact {id} : ")-5)+"*****"]
         for inf in contact[id]:
-            info.append(f"***** {inf} : {contact[id][inf]}"+" "*(50-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
+            info.append(f"***** {inf} : {contact[id][inf]}"+" "*(width-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
         info="\n".join(info)
         infos.append(info)
     elif prenom != None:
         for id in contact:
             if contact[id]["prenom"]==prenom:
-                info=[f"***** Contact {id} : "+" "*(50-len(f"***** Contact {id} : ")-5)+"*****"]
+                info=[f"***** Contact {id} : "+" "*(width-len(f"***** Contact {id} : ")-5)+"*****"]
                 for inf in contact[id]:
-                    info.append(f"***** {inf} : {contact[id][inf]}"+" "*(50-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
+                    info.append(f"***** {inf} : {contact[id][inf]}"+" "*(width-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
                 info="\n".join(info)
                 infos.append(info)
     elif tel != None:
         for id in contact:
             if contact[id]["tel"]==tel:
-                info=[f"***** Contact {id} : "+" "*(50-len(f"***** Contact {id} : ")-5)+"*****"]
+                info=[f"***** Contact {id} : "+" "*(width-len(f"***** Contact {id} : ")-5)+"*****"]
                 for inf in contact[id]:
-                    info.append(f"***** {inf} : {contact[id][inf]}"+" "*(50-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
+                    info.append(f"***** {inf} : {contact[id][inf]}"+" "*(width-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
                 info="\n".join(info)
                 infos.append(info)
     else:
         for id in contact:
-            info=[f"***** Contact {id} : "+" "*(50-len(f"***** Contact {id} : ")-5)+"*****"]
+            info=[f"***** Contact {id} : "+" "*(width-len(f"***** Contact {id} : ")-5)+"*****"]
             for inf in contact[id]:
-                info.append(f"***** {inf} : {contact[id][inf]}"+" "*(50-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
+                info.append(f"***** {inf} : {contact[id][inf]}"+" "*(width-len(f"***** {inf} : {contact[id][inf]}")-5)+"*****")
             info="\n".join(info)
             infos.append(info)
-    print("**************************************************")
+    print("*"*width)
     print("\n**************************************************\n".join(infos))
-    print("**************************************************")
+    print("*"*width)
     input()
     os.system("cls")
     
