@@ -1,12 +1,1 @@
-{
-    "0":{
-        "nom":"VH",
-        "prenom":"noah",
-        "naissance":"2007",
-        "addresse":"ML",
-        "ville":"ML",
-        "code_postal":"78600",
-        "tel":"07********",
-        "email":"example@gmail.com"
-    }
-}
+{"0": {"nom": "VH", "prenom": "noah", "naissance": "2007", "addresse": "ML", "ville": "ML", "code_postal": "78600", "tel": "07********", "email": "example@gmail.com"}, "1": {"nom": "paul", "prenom": "paul", "naissance": "2006", "addresse": "oyouzfqdqz", "ville": "jsp", "code_postal": "78400", "tel": "234567890", "email": "zoidhq@hu.com"}}
