@@ -36,7 +36,16 @@ def encode_cesar(strMessage: str, iDecalage: int) -> str:
         message+=encode_cesar_lettre(lettre,iDecalage)
     return message
 
-    
+def decode_cesar(strMessage: str, iDecalage: int) -> str:
+    """
+    blabla
+    """
+    assert type(strMessage)==str, "le message doit etre un string"
+    assert type(iDecalage)==int, "le decalage doit etre un entier"
+    message=""
+    for lettre in strMessage:
+        message+=encode_cesar_lettre(lettre,-iDecalage)
+    return message
 
 # print(encode_cesar_lettre("A",43))
 # print(encode_cesar_lettre("b",43))
@@ -44,3 +53,4 @@ def encode_cesar(strMessage: str, iDecalage: int) -> str:
 # print(encode_cesar_lettre(" ",43))
 # print(encode_cesar_lettre("!",43))
 print(encode_cesar("couCou C'est Moi !",146))
+print(decode_cesar(encode_cesar("couCou C'est Moi !",146),146))
