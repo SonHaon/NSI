@@ -13,6 +13,7 @@ def encode_cesar_lettre(cLettre: str, iDecalage: int) ->str:
     renvoie la lettre encodé en code cesar aver un decalage de idecalage
     """
     assert type(cLettre)==str, "la lettre doit etre un string"
+    assert len(cLettre)==1, "la lettre doit etre une seul lettre"
     assert type(iDecalage)==int, "le decalage doit etre un entier"
     if not (ord(cLettre.upper())<=90 and ord(cLettre.upper())>=65):
         return cLettre
@@ -25,11 +26,21 @@ def encode_cesar_lettre(cLettre: str, iDecalage: int) ->str:
         return chr(lettre).lower()
     
 def encode_cesar(strMessage: str, iDecalage: int) -> str:
-    
+    """
+    blabla
+    """
+    assert type(strMessage)==str, "le message doit etre un string"
+    assert type(iDecalage)==int, "le decalage doit etre un entier"
+    message=""
+    for lettre in strMessage:
+        message+=encode_cesar_lettre(lettre,iDecalage)
+    return message
+
     
 
-print(encode_cesar_lettre("A",43))
-print(encode_cesar_lettre("b",43))
-print(encode_cesar_lettre("C",43))
-print(encode_cesar_lettre(" ",43))
-print(encode_cesar_lettre("!",43))
+# print(encode_cesar_lettre("A",43))
+# print(encode_cesar_lettre("b",43))
+# print(encode_cesar_lettre("C",43))
+# print(encode_cesar_lettre(" ",43))
+# print(encode_cesar_lettre("!",43))
+print(encode_cesar("couCou C'est Moi !",146))
