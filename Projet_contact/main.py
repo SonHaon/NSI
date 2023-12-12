@@ -91,9 +91,9 @@ def voir_contact(id=None,prenom=None,nom=None,tel=None):
     else:
         liste=search_contact(prenom,nom,tel)
         for id in liste:
-            info=[f"*****"+" "*((width-len(f"***** Contact {id} : ")-5)//2)+f"Contact {id} : "+" "*((width-len(f"***** Contact {id} : ")-5)//2)+"*****"]
+            info=[f"*****"+" "*((width-len(f"***** Contact {id} : ")-5)//2)+f"Contact {id} : "+" "*((width-len(f"***** Contact {id} : ")-5)//2+(width-len(f"***** Contact {id} : ")-5)%2)+"*****"]
             for inf in contact[id]:
-                info.append(f"*****"+" "*((width-len(f"***** {inf} : {contact[id][inf]}")-5)//2)+f"{inf} : {contact[id][inf]}"+" "*((width-len(f"***** {inf} : {contact[id][inf]}")-5)//2)+"*****")
+                info.append(f"*****"+" "*((width-len(f"***** {inf} : {contact[id][inf]}")-5)//2)+f"{inf} : {contact[id][inf]}"+" "*((width-len(f"***** {inf} : {contact[id][inf]}")-5)//2+(width-len(f"***** Contact {id} : ")-5)%2)+"*****")
             info="\n".join(info)
             infos.append(info)
     print("*"*width)
