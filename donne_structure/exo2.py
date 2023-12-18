@@ -193,7 +193,4 @@ def change_task():
             break
         a+=1
 
-
-
-
 main()
