@@ -36,7 +36,7 @@ MNG044,5,male,15.9,39.2,7.3,True,positive
 MNG045,1,male,9.8,36.9,10.9,True,negative
 MNG046,4,male,18.8,39.2,11.3,True,negative
 MNG048,6,female,19.8,38.6,10.8,True,negative
-MNG049,1,male,10.1,38.1,male,True,negative
+MNG049,1,male,10.1,38.1,10,True,negative
 MNG051,5,male,12.7,36.9,14.9,True,negative
 MNG052,2,female,10.3,36.3,13.1,True,negative
 MNG055,1,female,7.3,39.6,10.8,True,negative

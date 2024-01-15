@@ -97,8 +97,24 @@ def lecture_csv_en_listes2(nom_du_fichier: str, delimiteur: str)->list:
 clear()
 # print(lecture_csv_en_listes("fruits.txt",";"))
 # print(lecture_csv_en_dictionnaire("fruits.txt",";"))
-patients = (lecture_csv_en_tuples_nommes("malaria.csv",","))
-nb=[]
-for patient in patients:
-    if patient.malaria=="positive":nb.append(patient)
-# print("\n".join(nb))
+# patients = (lecture_csv_en_tuples_nommes("malaria.csv",","))
+# nb=[]
+# hemo_att=0
+# hemo_att8nb=0
+# hemo_nn_att=0
+# hemo_nn_att8nb=0
+# for patient in patients:
+#     print(patient.hbConc)
+#     if patient.malaria=="positive":
+#         hemo_att+=float(patient.hbConc)
+#         hemo_att8nb+=1
+#     if patient.malaria=="negative":
+#         hemo_nn_att+=float(patient.hbConc)
+#         hemo_nn_att8nb+=1
+# print(hemo_att/hemo_att8nb)
+# print(hemo_nn_att/hemo_nn_att8nb)
+# # print("\n".join(nb))
+
+
+
+
