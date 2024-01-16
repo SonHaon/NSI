@@ -1,4 +1,4 @@
-from random import shuffle
+from random import shuffle,randrange
 from pathlib import Path
 import os,platform
 path = Path(__file__).parent
@@ -9,7 +9,8 @@ def clear():
     command = 'cls' if platform.system().lower().startswith('win') else 'clear'
     os.system(command)
 clear()
-carte = [10,8,2,5,1,5,2,17,15,6]
+carte = [10,8,2,5,1]
+carte= [randrange(0,10) for i in range (5)]
 carte_trie = [1,2,4,5,5,6,7,8,9,10]
 
 def est_trie(liste):
@@ -23,20 +24,19 @@ def est_trie(liste):
             pass
     return True
 
-def tri(carte):
+def tri(carte:list):
+    carte2=carte.copy()
     for i in range(len(carte)):
-        print(carte)
-        if i<2:
-            a=0
-            while carte[i-a]>carte[i-1-a]:
-                print(carte[i-1-a],carte[i-a])
-                carte[i-1-a],carte[i-a]=carte[i-a],carte[i-1-a]
-                a+=1
-        else:
-            if carte[i-1]>carte[i]:
-                carte[i-1],carte[i]=carte[i],carte[i-1]
+        temp=carte2[i]
+        carte.remove(temp)
+        carte.append(None)
+        a=len(carte)-2
+        while temp<carte[a] and a>=0:
+            carte[a+1],carte[a]=carte[a],carte[a+1]
+            a-=1
+        carte[a+1]=temp
 
-    print(carte)
+    return carte
 
 def tri_singe(liste):
     a=0
@@ -56,4 +56,4 @@ def tri_poste(liste):
             triee.append(element)
     return triee
 
-print(tri_poste(carte))
+print(tri(carte))
