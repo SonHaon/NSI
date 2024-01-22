@@ -11,7 +11,7 @@ def clear():
     os.system(command)
 clear()
 carte = [5,2,7,3,1]
-# carte= [randrange(0,10) for i in range (5)]
+carte= [randrange(0,10) for i in range (5)]
 carte_trie = [1,2,4,5,5,6,7,8,9,10]
 
 def est_trie(liste):
@@ -95,7 +95,32 @@ def tri_bulle(liste):
     
     return liste
 
-for i in count(0):
-    print(i)
+# for i in count(0):
+#     print(i)
 
-print(tri_bulle(carte))
+def min(liste):
+    mini=(0,99999999999999999999999999999)
+    for i in range(len(liste)):
+        if liste[i]<mini[1]:
+            mini=(i,liste[i])
+
+    return mini
+
+
+def tri_selection(liste):
+    for i in range(len(liste)):
+        mini=min(liste[i:])
+        liste[i],liste[mini[0]+i]=mini[1],liste[i]
+    
+    return liste
+
+
+
+
+
+
+
+
+
+
+print(tri_selection(carte))
