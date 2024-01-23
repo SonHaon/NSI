@@ -1,7 +1,7 @@
 from random import shuffle,randrange
 from pathlib import Path
 from itertools import count
-import os,platform
+import os,platform,math
 path = Path(__file__).parent
 def clear():
     """
@@ -99,7 +99,7 @@ def tri_bulle(liste):
 #     print(i)
 
 def min(liste):
-    mini=(0,99999999999999999999999999999)
+    mini=(0,math.inf)
     for i in range(len(liste)):
         if liste[i]<mini[1]:
             mini=(i,liste[i])
@@ -107,12 +107,15 @@ def min(liste):
     return mini
 
 
+
 def tri_selection(liste):
     for i in range(len(liste)):
         mini=min(liste[i:])
         liste[i],liste[mini[0]+i]=mini[1],liste[i]
-    
+
     return liste
+
+
 
 
 
