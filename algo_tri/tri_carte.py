@@ -10,7 +10,7 @@ def clear():
     command = 'cls' if platform.system().lower().startswith('win') else 'clear'
     os.system(command)
 clear()
-carte = [5,2,7,3,1]
+carte = [9, 5, 8, -2, 6, 4] 
 carte= [randrange(0,10) for i in range (5)]
 carte_trie = [1,2,4,5,5,6,7,8,9,10]
 
