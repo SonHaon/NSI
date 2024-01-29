@@ -12,6 +12,12 @@ def clear():
 clear()
 carte= [randrange(0,10) for i in range (5)]
 
+def trier(l): 
+    for i in range(len(l)): 
+        for j in range(0, len(l) - i - 1): 
+            if l[j] > l[j + 1]: 
+                l[j], l[j + 1] = l[j + 1], l[j] 
+    return l 
 
 # notes = [9,10, 10.5,15.5,7 ,7 ,2.5,16,7,12.5,13,13,9.5,4,12,10.5,19,6.5 , 13, 8.5]
 # def moyenne_note(notes:list):
@@ -44,13 +50,13 @@ def est_present_dans(tableau_trie,valeur):
     print(tableau_trie)
     milieu=tableau_trie[len(tableau_trie)//2]
 
-    while milieu>=1:
+    for i in range(len(tableau_trie)):
         if milieu==valeur:
             return True
-        if milieu<valeur:
+        if milieu>valeur:
             milieu=tableau_trie[len(tableau_trie[::milieu])//2]
         else:
             milieu=tableau_trie[len(tableau_trie[milieu::])//2]
     return False
     
-print(est_present_dans(carte,6))
+print(est_present_dans(trier(carte),6))
