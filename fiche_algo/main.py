@@ -59,7 +59,7 @@ def est_present_dans(tableau_trie,valeur):
             milieu=tableau_trie[len(tableau_trie[milieu::])//2]
     return False
     
-print(est_present_dans(trier(carte),6))
+# print(est_present_dans(trier(carte),6))
 
 def rechdic(liste,valeur):
     indices_inferieur=0
@@ -77,4 +77,31 @@ def rechdic(liste,valeur):
             return f"élément {valeur} présent a l'indice {milieu}"
     return "élément absent"
 
-print(rechdic(trier(carte),6))
+# print(rechdic(trier(carte),6))
+
+def f(x):
+    return math.cos(x)-x
+
+def recherche_sd_dicho(debut,fin,p):
+    while True:
+        milieu=(debut+fin)/2
+        # print(milieu,f(milieu))
+        if round(f(milieu),p)==0.0:
+            return f"{milieu} et {round(f(milieu),p+1)}"
+        elif f(milieu)>0.0:
+            debut=milieu
+        elif f(milieu<0.0):
+            fin=milieu
+
+def recherche_sd_dicho2(debut,fin,p):
+    milieu=(debut+fin)/2
+    while fin-debut>10**-p:
+        milieu=(debut+fin)/2
+        if f(milieu)>0.0:
+            debut=milieu
+        elif f(milieu<0.0):
+            fin=milieu
+    return f"{debut},{fin},{milieu} et {round(f(milieu),p+1)}"
+
+print(recherche_sd_dicho(0,4,4))
+print(recherche_sd_dicho2(0,4,4))
