@@ -60,3 +60,21 @@ def est_present_dans(tableau_trie,valeur):
     return False
     
 print(est_present_dans(trier(carte),6))
+
+def rechdic(liste,valeur):
+    indices_inferieur=0
+    indices_superieur=len(liste)-1
+    print("début :",indices_inferieur,indices_superieur)
+
+    while indices_inferieur<=indices_superieur:
+        milieu=(indices_inferieur+indices_superieur)//2
+
+        if liste[milieu]>valeur:
+            indices_superieur=milieu-1
+        elif liste[milieu]<valeur:
+            indices_inferieur=milieu+1
+        else:
+            return f"élément {valeur} présent a l'indice {milieu}"
+    return "élément absent"
+
+print(rechdic(trier(carte),6))
