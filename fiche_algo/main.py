@@ -90,7 +90,7 @@ def recherche_sd_dicho(debut,fin,p):
             return f"{milieu} et {round(f(milieu),p+1)}"
         elif f(milieu)>0.0:
             debut=milieu
-        elif f(milieu<0.0):
+        elif f(milieu)<0.0:
             fin=milieu
 
 def recherche_sd_dicho2(debut,fin,p):
@@ -99,7 +99,7 @@ def recherche_sd_dicho2(debut,fin,p):
         milieu=(debut+fin)/2
         if f(milieu)>0.0:
             debut=milieu
-        elif f(milieu<0.0):
+        elif f(milieu)<0.0:
             fin=milieu
     return f"{debut},{fin},{milieu} et {round(f(milieu),p+1)}"
 
