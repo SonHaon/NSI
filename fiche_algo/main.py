@@ -103,5 +103,15 @@ def recherche_sd_dicho2(debut,fin,p):
             fin=milieu
     return f"{debut},{fin},{milieu} et {round(f(milieu),p+1)}"
 
-print(recherche_sd_dicho(0,4,4))
-print(recherche_sd_dicho2(0,4,4))
+# print(recherche_sd_dicho(0,4,4))
+# print(recherche_sd_dicho2(0,4,4))
+
+
+def monnaie(somme:float,pieces:list):
+    pieces.sort(reverse=True)
+    for piece in pieces:
+        print((f"{round(somme//piece)} pièces de {piece} euro"))
+        somme=round(somme%piece,4)
+        if somme==0.0:return
+    
+monnaie(7.9,[1,2,0.5,0.1,0.05,0.1,0.2])

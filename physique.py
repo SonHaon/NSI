@@ -27,4 +27,4 @@ for k in range(1,len(x)-3):
 for i in range(0,len(x)-4):
     plt.quiver(x[2+i],y[2+i],dVx[i],dVy[i],color="b",scale=1,scale_units="xy")
 
-plt.show()
+plt.show()  
