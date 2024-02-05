@@ -115,4 +115,11 @@ def monnaie(somme:float,pieces:list):
         somme=round(somme%piece,4)
         if somme==0.0:return
     
-monnaie(17.86,[1,2,0.5,0.1,0.05,0.1,0.2,0.02,0.01])
+monnaie(999999.99,[500,200,100,50,20,10,5,3,1,2,0.5,0.1,0.05,0.1,0.2,0.02,0.01])
+
+
+objets=[{'nom' : 'chandelier', 'masse' : 11, 'valeur' : 400},
+        {'nom' : "tableau" , 'masse' : 2, 'valeur' : 2000},
+        {'nom' :'bijoux', 'masse' : 1, 'valeur' : 2000},
+        {'nom' : "diamant", 'masse' : 1, 'valeur' : 1000},
+        {'nom' : "lingot", 'masse' : 4, 'valeur' : 10000}]
