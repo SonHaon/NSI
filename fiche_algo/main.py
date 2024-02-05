@@ -110,8 +110,9 @@ def recherche_sd_dicho2(debut,fin,p):
 def monnaie(somme:float,pieces:list):
     pieces.sort(reverse=True)
     for piece in pieces:
-        print((f"{round(somme//piece)} pièces de {piece} euro"))
+        if round(somme//piece)!=0:
+            print((f"{round(somme//piece)} pièces de {piece} euro"))
         somme=round(somme%piece,4)
         if somme==0.0:return
     
-monnaie(7.9,[1,2,0.5,0.1,0.05,0.1,0.2])
+monnaie(17.86,[1,2,0.5,0.1,0.05,0.1,0.2,0.02,0.01])
