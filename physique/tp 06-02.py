@@ -12,7 +12,7 @@ Epp = [m*g*Z for Z in z]
 Em = []
 
 for i in range(0,len(Epp)):
-    Em.append(Ec[1]+Epp[1])
+    Em.append(Ec[i]+Epp[i])
 
 plt.plot(t,Ec, marker="+",label="Ec")
 plt.plot(t,Epp, marker="+",label="Epp")
