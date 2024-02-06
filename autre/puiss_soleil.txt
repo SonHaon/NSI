@@ -1,0 +1,8 @@
+P par m2 sphere terre soleil:
+Psurf = Ptot / 4pi R^2
+
+P sur le disque terre:
+Pdisque = Psurf * pi r^2
+
+P par m2 sur terre:
+Pm2terre = Pdisque/4pi r^2
