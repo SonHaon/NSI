@@ -161,7 +161,7 @@ def probleme_voyageur(distances: list, noms_villes: list, depart: int)->(int, li
     
 
 
-print(probleme_voyageur(distances,noms_villes,3))
+# print(probleme_voyageur(distances,noms_villes,3))
 
 tresors = [
     ("B", 3, 2),
@@ -197,4 +197,4 @@ def choisir_tresors(tresors, distance_max):
     
     return tresors_selectionnes
 
-# print(choisir_tresors(tresors, distance_max))
+print(choisir_tresors(tresors, distance_max))
