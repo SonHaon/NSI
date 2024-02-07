@@ -2,6 +2,8 @@ from random import shuffle,randrange
 from pathlib import Path
 from itertools import count
 import os,platform,math
+from operator import itemgetter
+
 path = Path(__file__).parent
 def clear():
     """
@@ -115,7 +117,7 @@ def monnaie(somme:float,pieces:list):
         somme=round(somme%piece,4)
         if somme==0.0:return
     
-monnaie(999999.99,[500,200,100,50,20,10,5,3,1,2,0.5,0.1,0.05,0.1,0.2,0.02,0.01])
+# monnaie(999999.99,[500,200,100,50,20,10,5,3,1,2,0.5,0.1,0.05,0.1,0.2,0.02,0.01])
 
 
 objets=[{'nom' : 'chandelier', 'masse' : 11, 'valeur' : 400},
@@ -123,3 +125,77 @@ objets=[{'nom' : 'chandelier', 'masse' : 11, 'valeur' : 400},
         {'nom' :'bijoux', 'masse' : 1, 'valeur' : 2000},
         {'nom' : "diamant", 'masse' : 1, 'valeur' : 1000},
         {'nom' : "lingot", 'masse' : 4, 'valeur' : 10000}]
+
+
+
+
+# problème voyageur
+
+distances = [[0,253,360,669,959,868],
+            [253,0,110,471,725,729],
+            [360,110,0,383,617,663],
+            [669,471,383,0,335,312],
+            [959,725,617,335,0,493],
+            [868,729,663,312,493,0]]
+
+noms_villes = ["Asti", "Bologne", "Rimini", "Napoli", "Lecce", "Palermo"]
+
+def probleme_voyageur(distances: list, noms_villes: list, depart: int)->(int, list):
+    distance_totale=0
+    chemin=[noms_villes[depart]]
+    for i in range(len(noms_villes)-1):
+        ville=noms_villes.index(chemin[-1])
+        distance=math.inf
+        seconde=None
+        for a in range(len(noms_villes)):
+            if distances[a][ville]<distance and ville!=a and not(noms_villes[a] in chemin):
+                distance=distances[a][ville]
+                seconde=a
+        chemin.append(noms_villes[seconde])
+        distance_totale+=distance
+    
+    chemin.append(noms_villes[depart])
+    distance_totale+=distances[seconde][depart]
+
+    return distance_totale, chemin
+    
+
+
+# print(probleme_voyageur(distances,noms_villes,3))
+
+tresors = [
+    ("B", 3, 2),
+    ("C", 8, 5),
+    ("D", 5, 2),
+    ("E", 10, 7),
+    ("F", 7, 4),
+    ("G", 1, 1),
+    ("H", 7, 4),
+    ("I", 3, 2),
+    ("J", 3, 1),
+    ("K", 6, 4),
+    ("L", 12, 10),
+    ("M", 2, 2),
+    ("N", 4, 1)
+]
+
+distance_max=26
+
+from operator import itemgetter
+
+
+def choisir_tresors(tresors, distance_max):
+    tresors_tries = sorted(tresors, key=itemgetter(1), reverse=True)
+    tresors_selectionnes = []
+    distance_parcourue = 0
+    
+    for tresor in tresors_tries:
+        distance_totale = tresor[2] * 2
+        if distance_parcourue + distance_totale <= distance_max:
+            tresors_selectionnes.append(tresor[0])
+            distance_parcourue += distance_totale
+    
+    return tresors_selectionnes
+
+tresors_selectionnes = choisir_tresors(tresors, distance_max)
+print("Trésors sélectionnés par Bob:", tresors_selectionnes)
