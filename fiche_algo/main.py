@@ -185,16 +185,39 @@ from operator import itemgetter
 
 
 def choisir_tresors(tresors, distance_max):
-    tresors_tries = sorted(tresors, key=lambda tresor: tresor[1]/(tresor[2]*2), reverse=True)
+    tresors_tries = sorted(tresors, key=lambda tresor: tresor[1]/(tresor[2]), reverse=True)
     tresors_selectionnes = []
     distance_parcourue = 0
+    somme=0
     
     for tresor in tresors_tries:
-        distance_totale = tresor[2] * 2
+        distance_totale = tresor[2]
         if distance_parcourue + distance_totale <= distance_max:
             tresors_selectionnes.append(tresor[0])
+            somme+=tresor[1]
             distance_parcourue += distance_totale
     
-    return tresors_selectionnes
+    return tresors_selectionnes,somme,distance_parcourue
 
 # print(choisir_tresors(tresors, distance_max))
+
+
+def tri_strategie1(activites):
+    return sorted(activites, key=lambda x: x[2] - x[1])  # Trie par durée croissante
+
+def choisir_activites_strategie1(activites):
+    activites_triées = tri_strategie1(activites)
+    choix = []
+    fin_precedente = 0
+    for activite in activites_triées:
+        if activite[1] >= fin_precedente:  # Vérifie la compatibilité
+            choix.append(activite)
+            fin_precedente = activite[2]
+    return choix
+
+activites = [("Match 1 de foot", 9, 11),
+            ("Match 2 de foot", 11, 13),
+            ("Match de ping-pong", 10, 11),
+            ("Match de basket", 9.5, 11)]
+
+print(choisir_activites_strategie1(activites))
