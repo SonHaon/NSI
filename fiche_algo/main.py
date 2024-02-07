@@ -161,7 +161,7 @@ def probleme_voyageur(distances: list, noms_villes: list, depart: int)->(int, li
     
 
 
-# print(probleme_voyageur(distances,noms_villes,3))
+print(probleme_voyageur(distances,noms_villes,3))
 
 tresors = [
     ("B", 3, 2),
@@ -185,7 +185,7 @@ from operator import itemgetter
 
 
 def choisir_tresors(tresors, distance_max):
-    tresors_tries = sorted(tresors, key=lambda obj: obj[1]/(obj[2]*2), reverse=True)
+    tresors_tries = sorted(tresors, key=lambda tresor: tresor[1]/(tresor[2]*2), reverse=True)
     tresors_selectionnes = []
     distance_parcourue = 0
     
@@ -197,5 +197,4 @@ def choisir_tresors(tresors, distance_max):
     
     return tresors_selectionnes
 
-tresors_selectionnes = choisir_tresors(tresors, distance_max)
-print("Trésors sélectionnés par Bob:", tresors_selectionnes)
+# print(choisir_tresors(tresors, distance_max))
