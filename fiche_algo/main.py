@@ -197,4 +197,4 @@ def choisir_tresors(tresors, distance_max):
     
     return tresors_selectionnes
 
-print(choisir_tresors(tresors, distance_max))
+# print(choisir_tresors(tresors, distance_max))
