@@ -185,7 +185,7 @@ from operator import itemgetter
 
 
 def choisir_tresors(tresors, distance_max):
-    tresors_tries = sorted(tresors, key=itemgetter(1), reverse=True)
+    tresors_tries = sorted(tresors, key=lambda obj: obj[1]/(obj[2]*2), reverse=True)
     tresors_selectionnes = []
     distance_parcourue = 0
     
