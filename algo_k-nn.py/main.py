@@ -43,7 +43,7 @@ def distances_min(dataset,cible,k):
     result=[min[each][1] for each in range(k)]
     return result
 
-print(distances_min(listeDePoints,cible,5))
+# print(distances_min(listeDePoints,cible,5))
 
 
 def max_classe(classe):
@@ -54,7 +54,7 @@ def max_classe(classe):
         except:
             result[a]=1
     return result
-print(max_classe(['B','R','R','B','R']))
+# print(max_classe(['B','R','R','B','R']))
 
 
 def knn(dataset,cible,k):
