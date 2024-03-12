@@ -70,10 +70,7 @@ footer {
   width: 100%;
 }
 
-.auteur {
-  margin-right: 20px;
-  text-align: end;
-}
+
 
 .images-presentation {
   display: grid;
@@ -107,7 +104,18 @@ footer {
 
 .presentation {
   background: linear-gradient(to left top, antiquewhite, #eefe59 70%,antiquewhite);
+  grid-template-columns: 1fr 1fr 1fr;
+  display: grid;
 }
+
+.auteur {
+  margin-right: 20px;
+  text-align: end;
+}
+.present-paragraphe {
+
+}
+
 
 
 
@@ -150,7 +158,8 @@ footer {
 }
 
 
-.slide {
+.slider {
+  padding-top: 20px;
   display: block;
   margin: auto;
   width: auto;
