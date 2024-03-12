@@ -19,20 +19,40 @@
 		<h1>La spécialité NSI de STE</h1>
 		<h2>Page d'acceuil</h2>
 
+		<div class="tableau">
+			<h3>la position du lycée :<br/><br/><iframe class="maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.0307308310917!2d2.097209912980897!3d48.89575149795561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e68829f7a36cb3%3A0xcfccc16b12da7ed6!2zw4ljb2xlIENvbGzDqGdlIEx5Y8OpZSBTYWludC3DiXJlbWJlcnQ!5e0!3m2!1sfr!2sfr!4v1710274507901!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></h3>
+			
+		</div>
+
 
 	
 		<div id="myModal" class="modal" onclick="Unzoom()">
 			<img class="modal-content" id="img_show">
 		</div>
-	
-		
 
+		<div id="cookie" class="cookie">
+			<p>Ce site utilise des cookies pour diverses finalités, notamment pour améliorer votre expérience de navigation, comprendre comment vous utilisez notre site et vous proposer des contenus personnalisés. Les cookies sont de petits fichiers texte stockés sur votre appareil lorsque vous visitez un site web. Ils sont largement utilisés pour faire fonctionner les sites web de manière efficace et fournir des informations aux propriétaires du site.
 
+				En naviguant sur ce site, vous consentez à l'utilisation de cookies conformément à notre politique de confidentialité. Vous avez la possibilité de désactiver les cookies dans les paramètres de votre navigateur, mais veuillez noter que certaines parties de notre site peuvent ne pas fonctionner correctement si vous le faites.
+				
+				Nous utilisons les types de cookies suivants :
+				
+				Cookies strictement nécessaires : Ces cookies sont essentiels au fonctionnement de notre site web. Ils vous permettent de naviguer sur le site et d'utiliser ses fonctionnalités.
+				
+				Cookies de performance : Ces cookies collectent des informations anonymes sur la manière dont les visiteurs utilisent notre site web. Ils nous aident à améliorer la manière dont notre site web fonctionne.
+				
+				Cookies de fonctionnalité : Ces cookies permettent à notre site web de se souvenir des choix que vous faites (comme votre nom d'utilisateur, votre langue ou la région où vous vous trouvez) et de fournir des fonctionnalités améliorées et plus personnelles.
+				
+				Cookies de ciblage : Ces cookies sont utilisés pour suivre les visiteurs sur les sites web. L'intention est de diffuser des publicités pertinentes et engageantes pour l'utilisateur individuel et donc plus précieuses pour les éditeurs et les annonceurs tiers.</p>
+			<button onclick="remove_cookie()" id="cookie_button_yes">Accepter</button>
+			<button onclick="remove_cookie()" id="cookie_button_no">Refuser</button>
+		</div>
 
 		<footer>
 			<p>Créé par Noah</p>
 		</footer>
 		
 		<script src="script_image_zoom.js"></script>
+		<script src="script_cookie.js"></script>
 	</body>
 </html>
